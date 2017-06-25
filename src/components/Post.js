@@ -18,7 +18,7 @@ export default class Post extends Component {
     render() {
 
         this.styles.postImg.backgroundImage = "url(" + this.props.post.img_url + ")";
-        this.styles.postImg.height = (300 * this.props.post.size) + "px";
+        this.styles.postImg.height = (300 / this.props.post.size) + "px";
 
         return(
             <div style={this.styles.post} onClick={this.handleShowPostDetail}>

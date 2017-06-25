@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Post from './Post';
-import PostDetail from './PostDetail'
+import PostDetail from './PostDetail';
+import NewPost from './NewPost';
 
 export default class AllPosts extends Component {
 
@@ -22,7 +23,7 @@ export default class AllPosts extends Component {
 
     render() {
         let posts = this.state.posts.map(post => {
-            return <Post post={post} showPostDetail={this.showPostDetail} />;
+            return <Post key={post._id} post={post} showPostDetail={this.showPostDetail} />;
         })
 
 
@@ -33,6 +34,7 @@ export default class AllPosts extends Component {
             <div>
                 <div style={this.styles.postsContainer}>{posts}</div>
                 <PostDetail display={display} post={this.state.detailedPost}  hidePostDetail={this.hidePostDetail}/>
+                <NewPost newPost={this.newPost}/>
             </div>
         )
     }
@@ -51,6 +53,10 @@ export default class AllPosts extends Component {
     hidePostDetail = () => {
         document.getElementsByTagName("body")[0].style.overflow = "scroll";
         this.setState({showDetail: false})
+    }
+
+    newPost = posts => {
+        this.setState({posts: posts});
     }
 
 
