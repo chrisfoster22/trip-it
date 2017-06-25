@@ -25,10 +25,14 @@ export default class AllPosts extends Component {
             return <Post post={post} showPostDetail={this.showPostDetail} />;
         })
 
+
+
+        let display = this.state.showDetail ? "flex" : "none";
+
         return(
             <div>
                 <div style={this.styles.postsContainer}>{posts}</div>
-                <PostDetail post={this.state.detailedPost}/>
+                <PostDetail display={display} post={this.state.detailedPost}  hidePostDetail={this.hidePostDetail}/>
             </div>
         )
     }
@@ -40,7 +44,13 @@ export default class AllPosts extends Component {
     }
 
     showPostDetail = (post) => {
+        document.getElementsByTagName("body")[0].style.overflow = "hidden";
         this.setState({showDetail: true, detailedPost: post})
+    }
+
+    hidePostDetail = () => {
+        document.getElementsByTagName("body")[0].style.overflow = "scroll";
+        this.setState({showDetail: false})
     }
 
 
