@@ -6,41 +6,15 @@ export default class CreatePost extends Component {
         open: false
     }
 
-    styles = {
-        createPostIcon: {
-            position: "absolute",
-            right: "20px",
-            top: "56px",
-            color: "#fff",
-            cursor: "pointer"
-        },
-        modalBg: {
-            backgroundColor: "rgba(0, 0, 0, .6)",
-            position: "fixed",
-            width: "100%",
-            height: "100%",
-            top: "0px",
-            color: "#fff",
-            animation: "fadeIn .3s forwards"
-        },
-        modal: {
-            width: "75%",
-            maxWidth: "600px",
-            margin: "50px auto",
-            backgroundColor: "#fff",
-            color: "#000"
-        }
-    }
-
     render() {
 
         if (!this.state.open) {
-            return <div onClick={()=>{this.setState({open: true})}}style={this.styles.createPostIcon}>New Post</div>
+            return <div onClick={()=>{this.setState({open: true})}}style={styles.createPostIcon}>New Post</div>
         }
 
         return(
-            <div style={this.styles.modalBg}>
-                <div style={this.styles.modal}>
+            <div style={styles.modalBg}>
+                <div style={styles.modal}>
                     <div onClick={()=>{this.setState({open:false})}}>Close?</div>
                     <input value={this.state.location} onChange={this.updateLocation} />
                     <input value={this.state.img_url} onChange={this.updateImgUrl} />
@@ -93,4 +67,31 @@ export default class CreatePost extends Component {
         this.setState({location: e.target.value})
     }
 
+}
+
+
+const styles = {
+    createPostIcon: {
+        position: "absolute",
+        right: "20px",
+        top: "56px",
+        color: "#fff",
+        cursor: "pointer"
+    },
+    modalBg: {
+        backgroundColor: "rgba(0, 0, 0, .6)",
+        position: "fixed",
+        width: "100%",
+        height: "100%",
+        top: "0px",
+        color: "#fff",
+        animation: "fadeIn .3s forwards"
+    },
+    modal: {
+        width: "75%",
+        maxWidth: "600px",
+        margin: "50px auto",
+        backgroundColor: "#fff",
+        color: "#000"
+    }
 }

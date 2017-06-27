@@ -11,16 +11,6 @@ export default class AllPosts extends Component {
         detailedPost: {}
     }
 
-    styles = {
-        postsContainer: {
-            columnCount: 3,
-            columnGap: "15px",
-            columnFill: "auto",
-            maxWidth: "1100px",
-            margin: "20px auto"
-        }
-    }
-
     render() {
         let posts = this.state.posts.map(post => {
             return <Post key={post._id} post={post} showPostDetail={this.showPostDetail} />;
@@ -33,7 +23,7 @@ export default class AllPosts extends Component {
         return(
             <div>
                 <CreatePost newPost={this.newPost} />
-                <div style={this.styles.postsContainer}>{posts}</div>
+                <div style={styles.postsContainer}>{posts}</div>
                 <PostDetail display={display} post={this.state.detailedPost}  hidePostDetail={this.hidePostDetail}/>
             </div>
         )
@@ -59,4 +49,14 @@ export default class AllPosts extends Component {
         this.setState({posts: posts});
     }
 
+}
+
+const styles = {
+    postsContainer: {
+        columnCount: 3,
+        columnGap: "15px",
+        columnFill: "auto",
+        maxWidth: "1100px",
+        margin: "20px auto"
+    }
 }
