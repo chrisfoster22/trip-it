@@ -4,7 +4,7 @@ export default function PostDetail(props) {
 
     styles.background.display = props.display;
     styles.postImg.backgroundImage = "url(" + props.post.img_url + ")";
-    styles.postImg.height = (450 * props.post.size) + "px";
+    styles.postImg.width = (450 * props.post.size) + "px";
 
     return(
         <div style={styles.background}>
@@ -28,7 +28,7 @@ const styles = {
         animation: "fadeIn .3s forwards"
     },
     postImg: {
-        width: "450px",
+        height: "450px",
         backgroundSize: "100% 100%",
         borderRadius: "3%"
     }

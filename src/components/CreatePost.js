@@ -52,6 +52,7 @@ export default class CreatePost extends Component {
             return response.json();
         }).then(data => {
             this.props.newPost(data);
+            this.setState({open: false, img_url: "", location: ""})
         });
     }
 
