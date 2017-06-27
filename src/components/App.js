@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Welcome to React</h2>
+          <h1>Trip It</h1>
         </div>
         <BrowserRouter>
             <Route exact path="/" component={AllPosts} />

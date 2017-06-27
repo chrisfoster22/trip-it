@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Post from './Post';
 import PostDetail from './PostDetail';
-import NewPost from './NewPost';
+import CreatePost from './CreatePost';
 
 export default class AllPosts extends Component {
 
@@ -32,9 +32,9 @@ export default class AllPosts extends Component {
 
         return(
             <div>
+                <CreatePost newPost={this.newPost} />
                 <div style={this.styles.postsContainer}>{posts}</div>
                 <PostDetail display={display} post={this.state.detailedPost}  hidePostDetail={this.hidePostDetail}/>
-                <NewPost newPost={this.newPost}/>
             </div>
         )
     }
@@ -58,7 +58,5 @@ export default class AllPosts extends Component {
     newPost = posts => {
         this.setState({posts: posts});
     }
-
-
 
 }
